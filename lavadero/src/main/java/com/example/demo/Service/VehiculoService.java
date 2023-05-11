@@ -2,7 +2,6 @@ package com.example.demo.Service;
 
 import com.example.demo.Interface.IVehiculo;
 import com.example.demo.InterfaceService.IVehiculoService;
-import com.example.demo.Model.Persona;
 import com.example.demo.Model.Vehiculo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
