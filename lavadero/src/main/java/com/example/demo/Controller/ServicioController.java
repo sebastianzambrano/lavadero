@@ -1,60 +1,54 @@
 package com.example.demo.Controller;
 
+import com.example.demo.InterfaceService.IServicioService;
+import com.example.demo.Model.Servicio;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.example.demo.InterfaceService.IPersonaService;
-import com.example.demo.Model.Persona;
 
 import java.util.List;
 import java.util.Optional;
 
-@Controller
-@RequestMapping
-public class PersonaController {
-
-
-
+public class ServicioController {
     @Autowired
-    private IPersonaService service;
+    private IServicioService service;
 
-    @GetMapping("/listarpersona")
+    @GetMapping("/listarservicio")
     public String listar(Model model){
-        List<Persona> personas= service.listar();
-        model.addAttribute("personas", personas);
+        List<Servicio> servicios= service.listar();
+        model.addAttribute("servicios", servicios);
         return "index";
     }
 
-    @GetMapping("/crearpersona")
+    @GetMapping("/crearservicio")
     public String agregar(Model model){
-        model.addAttribute("persona", new Persona());
+        model.addAttribute("persona", new Servicio());
         return "form";
     }
 
-    @PostMapping("/guardarpersona")
-    public String save(@Validated Persona p){
-        service.save(p);
+    @PostMapping("/guardarservicio")
+    public String save(@Validated Servicio s){
+        service.save(s);
         return "redirect:/listar";
     }
 
-    @GetMapping("/editarpersona/{id}")
+    @GetMapping("/editarservicio/{id}")
     public String editar(@PathVariable Long id, Model model){
-        Optional<Persona> persona = service.listarId(id);
-        model.addAttribute("persona", persona);
+        Optional<Servicio> servicio = service.listarId(id);
+        model.addAttribute("servicio", servicio);
         return "form";
     }
 
-    @GetMapping("/eliminarpersona/{id}")
+    @GetMapping("/eliminarservicio/{id}")
     public String delete(@PathVariable Long id){
         service.delete(id);
         return "redirect:/listar";
 
     }
+
+
 
 }

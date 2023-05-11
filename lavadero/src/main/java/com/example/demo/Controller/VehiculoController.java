@@ -28,13 +28,13 @@ public class VehiculoController {
         return "index";
     }
 
-    @GetMapping("/newvehiculo")
+    @GetMapping("/crearvehiculo")
     public String agregar(Model model){
         model.addAttribute("vehiculo", new Vehiculo());
         return "form";
     }
 
-    @PostMapping("/savevehiculo")
+    @PostMapping("/guardarvehiculo")
     public String save(@Validated Vehiculo v){
         service.save(v);
         return "redirect:/listar";
