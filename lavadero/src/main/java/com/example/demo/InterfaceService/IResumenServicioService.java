@@ -9,9 +9,9 @@ import java.util.Optional;
 
 @SpringBootApplication(scanBasePackages = {"com.example.CrudSpringBoot"})
 public interface IResumenServicioService {
-    public List<Servicio> listar();
-    public Optional<Servicio> listarId();
-    public int save (ResumenServicio r);
+    public List<ResumenServicio> listar();
+    public Optional<ResumenServicio> listarId(Long identidadCliente);
+    public int save (ResumenServicio f);
 
-    public void delete(Long id);
+    public void delete(Long identidadCliente);
 }

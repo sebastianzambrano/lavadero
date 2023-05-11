@@ -17,7 +17,6 @@ public interface IPersonaService {
 
     public void delete(Long id);
 
-    //public void update(Long id);
 
 
 }

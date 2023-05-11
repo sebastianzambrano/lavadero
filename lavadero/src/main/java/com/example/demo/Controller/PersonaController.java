@@ -19,8 +19,6 @@ import java.util.Optional;
 @RequestMapping
 public class PersonaController {
 
-
-
     @Autowired
     private IPersonaService service;
 
