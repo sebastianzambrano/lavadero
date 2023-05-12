@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="container mt-4">
-  <a th:href="@{/new}" class="btn btn-primary">Nuevo</a>
+  <a th:href="@{/crearpersona}" class="btn btn-primary">Nuevo</a>
   <table class="table" border="=3">
     <thead>
     <tr>
@@ -27,8 +27,8 @@
       <td th:text="${persona.apellido}"></td>
       <td th:text="${persona.numeroContacto}"></td>
       <td>
-        <a th:href="@{/editar/}+${persona.id}" class="btn btn-warning">Editar</a>
-        <a th:href="@{/eliminar/}+${persona.id}"  class="btn btn-danger">Eliminar</a>
+        <a th:href="@{/editarpersona/}+${persona.id}" class="btn btn-warning">Editar</a>
+        <a th:href="@{/eliminarpersona/}+${persona.id}"  class="btn btn-danger">Eliminar</a>
       </td>
     </tr>
     </tbody>

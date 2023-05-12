@@ -4,10 +4,12 @@ import com.example.demo.Interface.IServicio;
 import com.example.demo.InterfaceService.IServicioService;
 import com.example.demo.Model.Servicio;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class ServicioService implements IServicioService {
 
     @Autowired

@@ -31,7 +31,7 @@ public class VehiculoController {
     @GetMapping("/crearvehiculo")
     public String agregar(Model model){
         model.addAttribute("vehiculo", new Vehiculo());
-        return "form";
+        return "vehiculo";
     }
 
     @PostMapping("/guardarvehiculo")
