@@ -22,8 +22,8 @@ public class VehiculoService implements IVehiculoService {
     }
 
     @Override
-    public Optional<Vehiculo> listarPlaca(Long placa) {
-        return data.findById(placa);
+    public Optional<Vehiculo> listarPlaca(Long id) {
+        return data.findById(id);
     }
 
     @Override
@@ -37,8 +37,8 @@ public class VehiculoService implements IVehiculoService {
     }
 
     @Override
-    public void delete(Long placa) {
-        data.deleteById(placa);
+    public void delete(Long id) {
+        data.deleteById(id);
     }
 
 }

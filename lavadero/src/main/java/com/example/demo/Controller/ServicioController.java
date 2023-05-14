@@ -24,32 +24,32 @@ public class ServicioController {
     public String listar(Model model) {
         List<Servicio> servicios = service.listar();
         model.addAttribute("servicios", servicios);
-        return "servicio";
+        return "listarservicios";
     }
 
     @GetMapping("/crearservicio")
     public String agregar(Model model) {
         model.addAttribute("servicio", new Servicio());
-        return "servicio";
+        return "crearservicios";
     }
 
     @PostMapping("/guardarservicio")
     public String save(@Validated Servicio s) {
         service.save(s);
-        return "redirect:/listar";
+        return "redirect:/listarservicio";
     }
 
     @GetMapping("/editarservicio/{id}")
     public String editar(@PathVariable Long id, Model model) {
         Optional<Servicio> servicio = service.listarId(id);
         model.addAttribute("servicio", servicio);
-        return "form";
+        return "crearservicios";
     }
 
     @GetMapping("/eliminarservicio/{id}")
     public String delete(@PathVariable Long id) {
         service.delete(id);
-        return "redirect:/listar";
+        return "redirect:/listarservicio";
 
     }
 

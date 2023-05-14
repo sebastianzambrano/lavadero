@@ -24,33 +24,33 @@ public class VehiculoController {
     @GetMapping("/listarvehiculo")
     public String listar(Model model){
         List<Vehiculo> vehiculos= service.listar();
-        model.addAttribute("vehiculo", vehiculos);
-        return "index";
+        model.addAttribute("vehiculos", vehiculos);
+        return "listarvehiculos";
     }
 
     @GetMapping("/crearvehiculo")
     public String agregar(Model model){
         model.addAttribute("vehiculo", new Vehiculo());
-        return "vehiculo";
+        return "crearvehiculos";
     }
 
     @PostMapping("/guardarvehiculo")
     public String save(@Validated Vehiculo v){
         service.save(v);
-        return "redirect:/listar";
+        return "redirect:/listarvehiculo";
     }
 
-    @GetMapping("/editarvehiculo/{placa}")
-    public String editar(@PathVariable Long placa, Model model){
-        Optional<Vehiculo> vehiculo = service.listarPlaca(placa);
+    @GetMapping("/editarvehiculo/{id}")
+    public String editar(@PathVariable Long id, Model model){
+        Optional<Vehiculo> vehiculo = service.listarPlaca(id);
         model.addAttribute("vehiculo", vehiculo);
-        return "form";
+        return "crearvehiculos";
     }
 
-    @GetMapping("/eliminarvehiculo/{placa}")
-    public String delete(@PathVariable Long placa){
-        service.delete(placa);
-        return "redirect:/listar";
+    @GetMapping("/eliminarvehiculo/{id}")
+    public String delete(@PathVariable Long id){
+        service.delete(id);
+        return "redirect:/listarvehiculo";
 
     }
 

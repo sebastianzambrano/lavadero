@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>VEHICULOS REGISTRADOS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" th:href="@{/menu}">MENU</a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/crearpersona}" >Crear Persona</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/crearvehiculo}">Crear Vehiculo</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/crearservicio}">Crear servicio</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/crearfactura}">Crear factura</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="container mt-4">
+
+    <table class="table" border="=3">
+        <thead>
+
+        <tr>
+            <th>TIPO DEL VEHICULO</th>
+            <th>PLACA DEL VEHICULO</th>
+            <th>ACCIONES</th>
+        </tr>
+
+        </thead>
+        <tbody>
+        <tr th:each="vehiculo:${vehiculos}">
+            <td th:text="${vehiculo.tipoVehiculo}"></td>
+            <td th:text="${vehiculo.placa}"></td>
+
+            <td>
+                <a th:href="@{/editarvehiculo/}+${vehiculo.id}" class="btn btn-warning">Editar</a>
+                <a th:href="@{/eliminarvehiculo/}+${vehiculo.id}" class="btn btn-danger">Eliminar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<table>
+</table>
+</body>
+</html>

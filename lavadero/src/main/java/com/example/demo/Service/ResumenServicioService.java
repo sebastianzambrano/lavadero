@@ -6,10 +6,12 @@ import com.example.demo.InterfaceService.IResumenServicioService;
 import com.example.demo.Model.ResumenServicio;
 import com.example.demo.Model.Servicio;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class ResumenServicioService implements IResumenServicioService {
 
 

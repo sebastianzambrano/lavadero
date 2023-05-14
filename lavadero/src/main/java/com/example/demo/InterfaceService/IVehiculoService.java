@@ -10,7 +10,7 @@ import java.util.Optional;
 public interface IVehiculoService {
 
     public List<Vehiculo> listar();
-    public Optional<Vehiculo> listarPlaca(Long placa);
+    public Optional<Vehiculo> listarPlaca(Long id);
     public int save (Vehiculo v);
-    public void delete(Long placa);
+    public void delete(Long id);
 }

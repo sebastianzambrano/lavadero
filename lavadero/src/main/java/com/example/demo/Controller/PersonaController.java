@@ -26,32 +26,32 @@ public class PersonaController {
     public String listar(Model model){
         List<Persona> personas= service.listar();
         model.addAttribute("personas", personas);
-        return "index";
+        return "listarpersonas";
     }
 
     @GetMapping("/crearpersona")
     public String agregar(Model model){
         model.addAttribute("persona", new Persona());
-        return "form";
+        return "crearpersonas";
     }
 
     @PostMapping("/guardarpersona")
     public String save(@Validated Persona p){
         service.save(p);
-        return "redirect:/listar";
+        return "redirect:/listarpersona";
     }
 
     @GetMapping("/editarpersona/{id}")
     public String editar(@PathVariable Long id, Model model){
         Optional<Persona> persona = service.listarId(id);
         model.addAttribute("persona", persona);
-        return "form";
+        return "crearpersonas";
     }
 
     @GetMapping("/eliminarpersona/{id}")
     public String delete(@PathVariable Long id){
         service.delete(id);
-        return "redirect:/listar";
+        return "redirect:/listarpersona";
 
     }
 

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>SERVICIOS DEL LAVADERO</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" th:href="@{/menu}">MENU</a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/crearpersona}" >Crear Persona</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/crearvehiculo}">Crear Vehiculo</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/crearservicio}">Crear servicio</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/crearfactura}">Crear factura</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="container mt-4">
+    <div class="col-sm-6">
+        <form th:action="@{/guardarservicio}" th:object="${servicio}" method="POST">
+            <div class="card">
+                <div class="card-header">
+                    <h3>
+                        AGREGAR/EDITAR SERVICIOS DEL LAVADERO
+                    </h3>
+                </div>
+
+                <div class="card-body">
+                    <div class="form-group">S
+                        <label>TIPO DE SERVICIO</label>
+                        <input th:field="*{tipoServicio}" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>VALOR DEL SERVICIO</label>
+                        <input th:field="*{valorServicio}" type="number" class="form-control">
+                    </div>
+
+                </div>
+                <div class="card-footer">
+                    <input type="submit" value="Guardar" class="btn btn-success">
+                    <a th:href="@{/listarservicio/}" class="btn btn-warning">VER SERVICIOS CREADOS</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+</div>
+</body>
+</html>
